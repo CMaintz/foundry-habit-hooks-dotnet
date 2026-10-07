@@ -1,0 +1,15 @@
+# C#/.NET plugin defaults.
+language = "csharp"
+# A project naming no `files` of its own scans what its plugins declare. `bin/`
+# and `obj/` hold build output and generated sources (`*.g.cs`, AssemblyInfo)
+# the project did not write and cannot change, so they are excluded; the
+# exclusions name `*.cs` because a plugin's exclusions bind the union of every
+# active plugin's globs, not just its own.
+files = ["**/*.cs", "!**/bin/**/*.cs", "!**/obj/**/*.cs"]
+sensors = ["dotnet-build"]
+transformers = []
+
+# The sensor spawns the dotnet SDK directly.
+detectors = [
+  { name = "dotnet", kind = "command", install = "winget install Microsoft.DotNet.SDK.9" },
+]

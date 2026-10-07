@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Habit-hooks structural smell rules for C#. Reached for only when the project
+  names no CodeAnalysisRuleSet of its own; a project's own ruleset or
+  .editorconfig severity wins. SonarAnalyzer.CSharp ships these rules off by
+  default, so enabling them here is what makes the sensor emit anything.
+-->
+<RuleSet Name="habit-hooks dotnet structural smells" ToolsVersion="15.0">
+  <Rules AnalyzerId="SonarAnalyzer.CSharp" RuleNamespace="SonarAnalyzer.CSharp">
+    <Rule Id="S104" Action="Warning" />
+    <Rule Id="S107" Action="Warning" />
+    <Rule Id="S138" Action="Warning" />
+    <Rule Id="S1541" Action="Warning" />
+    <Rule Id="S3776" Action="Warning" />
+  </Rules>
+</RuleSet>

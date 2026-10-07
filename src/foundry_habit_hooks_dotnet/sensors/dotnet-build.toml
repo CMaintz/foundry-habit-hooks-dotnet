@@ -1,0 +1,1 @@
+argv = ["${python}", "${dir}/dotnet_build_sensor.py", "${detector:dotnet}", "${args}", "--", "${files}"]

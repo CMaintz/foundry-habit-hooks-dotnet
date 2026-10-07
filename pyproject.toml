@@ -1,0 +1,51 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "foundry-habit-hooks-dotnet"
+version = "1.5.0"
+description = "The C#/.NET Habit Hooks plugin"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = [
+  "ai-coding-agents",
+  "ci",
+  "code-quality",
+  "code-smells",
+  "csharp",
+  "dotnet",
+  "linter",
+  "refactoring",
+  "static-analysis",
+  "technical-debt",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Quality Assurance",
+]
+# Released in lockstep with the core: the plugin tracks habit-hooks' major.minor
+# so the sensor protocol it builds against never drifts. Mise's
+# HABIT_HOOKS_VERSION drives both pins together.
+dependencies = ["habit-hooks>=1.5,<1.6"]
+
+[project.urls]
+Repository = "https://github.com/CMaintz/foundry-habit-hooks-dotnet"
+Issues = "https://github.com/CMaintz/foundry-habit-hooks-dotnet/issues"
+
+# The entry point that registers this package under the plugin name `dotnet`,
+# matching how the generic, java and typescript plugins register their own.
+[project.entry-points."habit_hooks.plugins"]
+dotnet = "foundry_habit_hooks_dotnet"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/foundry_habit_hooks_dotnet"]
